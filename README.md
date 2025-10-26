@@ -40,11 +40,11 @@ Dengan membandingkan dua metode ini, diharapkan proyek dapat memberikan **rekome
 
 ## 🧩 Diagram Alur Proyek
 
-ddd
+(Akan dibuat diagram alur proyek)
 
 ---
 
-## 🧠 Teknologi dan Tools Digunakan  
+## 🧠 Teknologi dan Tools yang Digunakan  
 
 | Kategori           | Tools / Library                                |
 |--------------------|-----------------------------------------------|
@@ -56,12 +56,120 @@ ddd
 
 ---
 
-## 📈 Hasil yang Diharapkan dan Rencana Output  
-- Grafik visualisasi tren harga beras harian 2022–2024  
-- Model SARIMA dan LSTM dengan parameter terbaik  
-- Tabel dan grafik perbandingan performa model dalam metrik evaluasi  
-- Laporan analisis mendalam prediksi harga beras 2025  
-- Rekomendasi model terbaik yang dapat digunakan oleh pemangku kebijakan
+## 🗂️ Struktur Proyek  
+
+Prediksi-Harga-Beras-Harian/
+├── 📁 data/  
+│   ├── harga_beras_harian.csv                # Dataset harga beras harian (2022–2024)  
+│   └── data_preprocessed.csv                 # Data setelah preprocessing  
+│
+├── 📁 scripts/  
+│   ├── sarima_model.R                        # Script analisis dan pemodelan SARIMA  
+│   ├── lstm_model.R                          # Script analisis dan pemodelan LSTM  
+│   ├── evaluation_metrics.R                  # Perhitungan MAE, RMSE, MAPE, R²  
+│   └── visualization.R                       # Visualisasi tren dan hasil prediksi  
+│
+├── 📁 outputs/  
+│   ├── sarima_forecast.png                   # Grafik hasil prediksi SARIMA  
+│   ├── lstm_forecast.png                     # Grafik hasil prediksi LSTM  
+│   ├── comparison_plot.png                   # Perbandingan kedua model  
+│   └── model_evaluation.csv                  # Hasil evaluasi performa model  
+│
+├── 📁 assets/  
+│   └── header_beras.png                      # Gambar header untuk README  
+│
+├── README.md                                 # Dokumentasi proyek utama  
+├── requirements.txt                          # (opsional) daftar library R yang digunakan  
+└── .gitignore                                # File untuk mengabaikan data sensitif / besar
+
+---
+
+## 📦 Fitur Proyek
+1. 📊 **Visualisasi Data Harian**
+   - Menampilkan grafik tren harga beras harian dari tahun 2022–2024.
+   - Analisis pola musiman, tren, dan deteksi outlier menggunakan `ggplot2` dan `plotly`.
+2. 🔍 **Preprocessing Data**
+   - Membersihkan data mentah dari nilai kosong (missing values) dan duplikasi.
+   - Transformasi data menjadi format time series yang siap dipakai untuk pemodelan.
+3. ⚙️ **Pemodelan SARIMA**
+   - Menentukan parameter optimal (p, d, q)(P, D, Q)m.
+   - Menganalisis pola musiman dan tren jangka pendek dengan library `forecast`.
+4. 🧠 **Pemodelan LSTM**
+   - Membangun model berbasis jaringan saraf berulang menggunakan `keras` dan `tensorflow`.
+   - Menangkap hubungan non-linear dan dependensi jangka panjang antar waktu.
+5. 📈 **Evaluasi dan Perbandingan Model**
+   - Menghitung metrik performa seperti MAE, RMSE, MAPE, dan R².
+   - Membandingkan akurasi hasil prediksi antara SARIMA dan LSTM.
+6. 🖼️ **Visualisasi Hasil Prediksi**
+   - Menampilkan hasil prediksi vs data aktual dalam grafik interaktif.
+   - Menyediakan visual perbandingan performa antara kedua metode.
+7. 📑 **Laporan dan Rekomendasi**
+   - Menyajikan hasil akhir analisis dalam format tabel, grafik, dan kesimpulan.
+   - Memberikan rekomendasi metode terbaik untuk prediksi harga beras jangka pendek.
+
+---
+
+## 📊 Hasil dan Implementasi Fitur
+### 1. 📊 Visualisasi Data Harian
+- Grafik tren harga beras menunjukkan adanya **pola musiman** yang berulang setiap tahun dengan kenaikan harga pada awal dan akhir tahun.  
+- Visualisasi interaktif membantu mengidentifikasi **outlier harian** dan periode harga stabil.  
+- Tools: `ggplot2`, `plotly`, `dygraphs`
+
+📈 *Contoh Output:*  ...
+
+---
+
+### 2. 🔍 Preprocessing Data
+- Data mentah dari Bapanas dibersihkan dari **missing values dan duplikasi**.  
+- Format tanggal dikonversi menjadi `Date` agar sesuai untuk analisis time series.  
+- Hasil preprocessing disimpan dalam file ...
+
+📁 *Output:* `...`
+
+---
+
+### 3. ⚙️ Pemodelan SARIMA
+- Model terbaik diperoleh dengan parameter **(p, d, q)(P, D, Q)m = (1,1,1)(0,1,1)[7]** berdasarkan nilai **AIC terkecil**.  
+- Hasil prediksi SARIMA menunjukkan **akurasi tinggi pada pola musiman** tetapi sedikit tertinggal pada perubahan mendadak harga.  
+- Tools: `forecast`, `tseries`
+
+📊 *Contoh Grafik Output:*  ...
+
+---
+
+### 4. 🧠 Pemodelan LSTM
+- Model LSTM dengan **3 lapisan tersembunyi (hidden layers)** menghasilkan prediksi yang lebih adaptif terhadap fluktuasi harga harian.  
+- Akurasi model meningkat setelah proses normalisasi dan optimisasi parameter epoch & batch size.  
+- Tools: `keras`, `tensorflow`
+
+📊 *Contoh Grafik Output:*  ...
+
+---
+
+### 5. 📈 Evaluasi dan Perbandingan Model
+- Evaluasi dilakukan menggunakan metrik MAE, RMSE, MAPE, dan R².  
+- Hasil menunjukkan **LSTM memiliki RMSE dan MAPE lebih rendah** dibandingkan SARIMA, menandakan performa prediksi yang lebih baik.  
+- Tools: `Metrics`, `caret`
+
+📊 *Tabel Perbandingan:* ...
+
+---
+
+### 6. 🖼️ Visualisasi Hasil Akhir
+- Grafik perbandingan model menampilkan **prediksi vs aktual** secara bersamaan.  
+- Hasil menunjukkan bahwa **LSTM** lebih cepat menyesuaikan terhadap perubahan harga mendadak.  
+- Tools: `ggplot2`, `plotly`
+
+📊 *Visualisasi Gabungan:*  ...
+
+---
+
+### 7. 📑 Laporan dan Rekomendasi
+- Berdasarkan hasil pengujian, metode **LSTM** direkomendasikan untuk **prediksi harga beras harian jangka pendek**.  
+- SARIMA tetap relevan untuk prediksi tren musiman jangka menengah.  
+- Laporan akhir berisi analisis hasil, grafik, dan rekomendasi kebijakan berbasis data.
+
+📁 *Output Laporan:* `...`
 
 ---
 
