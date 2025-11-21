@@ -1,40 +1,72 @@
-# 🍚 Prediksi Harga Beras Harian di Indonesia Menggunakan Metode SARIMA dan LSTM
+# 🍚 Prediksi Harga Beras Medium di Indonesia Menggunakan Metode ARIMA, SARIMA, dan LSTM
 
 <img width="1100" height="350" alt="header project pemro" src="https://github.com/user-attachments/assets/cc96082d-6d0c-4db8-9c5e-1dbf19945447" />
 
 ## 📖 Deskripsi Proyek  
-Proyek ini bertujuan untuk **membandingkan performa dua metode prediksi time series — SARIMA (Seasonal Autoregressive Integrated Moving Average) dan LSTM (Long Shot Term Memory) — dalam memperkirakan harga beras harian di Indonesia**.  Data yang digunakan adalah **harga harian beras medium** untuk periode **Agustus 2022–Juli 2025**, yang bersumber dari **Badan Pangan Nasional (Bapanas)** melalui situs [panelharga.badanpangan.go.id](https://panelharga.badanpangan.go.id). Diharapkan dapat diperoleh metode yang paling akurat terbaik untuk memprediksi harga beras guna mendukung kebijakan stabilitas harga pangan. _“Prediksi yang akurat hari ini, untuk ketahanan pangan esok hari.”_
+Proyek ini bertujuan untuk menganalisis dan membandingkan akurasi tiga metode peramalan deret waktu—**ARIMA, SARIMA, dan LSTM**—dalam memprediksi **harga beras medium di Indonesia**. Data yang digunakan berupa harga beras medium bulanan untuk periode Januari 2013–Oktober 2025, yang diperoleh dari situs resmi Badan Pusat Statistik (BPS). Melalui perbandingan ketiga model tersebut, proyek ini berupaya mengidentifikasi metode yang paling efektif dalam menangkap pola tren, musiman, serta dinamika non-linear pada harga beras. Hasil akhir diharapkan dapat mendukung penyusunan kebijakan stabilisasi harga pangan yang lebih responsif dan berbasis data.
+
+_“Prediksi yang akurat hari ini, untuk ketahanan pangan esok hari.”_
 
 ---
 
 ## 🇮🇩 Latar Belakang   
-Beras merupakan komoditas strategis untuk menjaga **ketahanan pangan dan stabilitas ekonomi nasional**. Fluktuasi harga beras harian berdampak signifikan terhadap **daya beli masyarakat**, **inflasi**, dan **kebijakan pangan nasional**. Faktor-faktor seperti kondisi cuaca, distribusi antar daerah, kebijakan impor, dan biaya transportasi memengaruhi dinamika harga beras. Prediksi harga berbasis data menjadi penting untuk mendeteksi perubahan harga secara cepat dan akurat.  
-Metode **SARIMA** cocok untuk menangkap pola musiman dan tren jangka pendek dalam data time series (Box, Jenkins, & Reinsel, 2015). Sementara itu, **LSTM** memiliki kemampuan mengenali pola non-linear dan ketergantungan jangka panjang dalam data harian (Greff et al., 2017).
-Dengan membandingkan dua metode ini, diharapkan proyek dapat memberikan **rekomendasi model terbaik** untuk prediksi harga beras harian dan mendukung kebijakan pangan yang berbasis data.
+Beras merupakan komoditas pangan strategis di Indonesia, sehingga fluktuasi harganya berdampak langsung pada daya beli masyarakat, inflasi, dan stabilitas kebijakan pangan. Data historis menunjukkan adanya tren kenaikan harga beras yang cukup tajam dengan pola musiman dan volatilitas yang meningkat. **Kondisi ini menuntut metode prediksi yang mampu menangkap dinamika tren, musiman, sekaligus pola non-linear**.
+
+Model ARIMA telah lama digunakan untuk memodelkan pola tren dan autokorelasi jangka pendek pada deret waktu (Box, Jenkins, Reinsel, & Ljung, 2015). SARIMA kemudian menjadi perluasan yang relevan ketika pola musiman muncul secara konsisten. Sementara itu, model berbasis LSTM mampu mengenali hubungan non-linear dan ketergantungan jangka panjang yang tidak dapat ditangkap oleh metode statistik tradisional (Hochreiter & Schmidhuber, 1997; Greff et al., 2017). Dengan membandingkan ketiga pendekatan tersebut, penelitian ini bertujuan menentukan metode prediksi harga beras medium yang paling akurat untuk mendukung kebijakan pangan berbasis data.
 
 ---
 
 ## 🎯 Tujuan  
-1. Menganalisis pola fluktuasi harga beras harian di Indonesia periode Agustus 2022–Juli 2025.  
-2. Membangun dua model prediksi — SARIMA dan LSTM — menggunakan data harian.  
-3. Membandingkan performa kedua model berdasarkan metrik evaluasi **MAE, RMSE, MAPE, dan R²**.  
-4. Menentukan metode paling efektif untuk prediksi harga beras jangka pendek (harian).  
-5. Memberikan rekomendasi berbasis data untuk pemantauan dan stabilisasi harga pangan nasional.
+1. Menganalisis pola historis harga beras medium di Indonesia, termasuk tren jangka panjang, musiman tahunan, dan volatilitas yang meningkat, sebagai dasar untuk pemodelan deret waktu.
+2. Membangun dan mengevaluasi model ARIMA, SARIMA, dan LSTM untuk memprediksi harga beras medium, dengan memperhatikan karakteristik data seperti tren kuat, pola musiman, serta kemungkinan hubungan non-linear.
+3. Membandingkan performa ketiga model berdasarkan akurasi prediksi, terutama pada periode pengujian dan peramalan ke depan.
+4. Menentukan model terbaik yang mampu memberikan prediksi harga beras paling akurat dan representatif terhadap dinamika data, sehingga dapat mendukung penyusunan kebijakan stabilisasi harga beras yang berbasis data.
 
 ---
 
 ## 📊 Sumber dan Metodologi Analisis Data  
 **Sumber Data:**  
-- Badan Pangan Nasional (Bapanas) – Panel Harga Pangan: [panelharga.badanpangan.go.id](https://panelharga.badanpangan.go.id)  
+- Situs resmi Badan Pusat Statistik [https://www.bps.go.id/id/statistics-table/2/NTAwIzI=/rata-rata-harga-beras-bulanan-di-tingkat-penggilingan-menurut-kualitas.html]
 
 **Langkah Analisis:**  
-1. Pengumpulan data harga beras medium harian Agustus 2022–Juli 2025.  
-2. Integrasi dan preprocessing data untuk memastikan kelengkapan dan konsistensi.  
-3. Eksplorasi data: visualisasi tren musiman, outlier, dan korelasi.  
-4. Penerapan model SARIMA dengan pemilihan parameter optimal (p, d, q)(P, D, Q)m.  
-5. Pembangunan model LSTM dengan arsitektur yang dioptimalkan untuk data time series.  
-6. Evaluasi performa model menggunakan MAE, RMSE, MAPE, dan koefisien determinasi (R²).  
-7. Interpretasi hasil dan rekomendasi metode terbaik untuk prediksi harga beras.
+1. Persiapan dan Pembersihan Data:
+   - Mengumpulkan data harga beras medium bulanan (Januari 2013–Oktober 2025) dari BPS.
+   - Menyesuaikan format tanggal agar konsisten dan mengonversi ke objek _time series_ dengan frekuensi bulanan.
+   - Memastikan tidak terdapat _missing value_ atau duplikasi.
+2. Eksplorasi Data
+   - Visualisasi pola tren jangka panjang, musiman tahunan, dan fluktuasi periodik.
+   - Mengidentifikasi outlier dan potensi structural break.
+   - Analisis sifat musiman menggunakan ACF, PACF, dan STL decomposition.
+   - Uji stasioneritas (ADF test) untuk menilai apakah diperlukan differencing.
+3. Pemisahan Data
+   - Data periode Jan 2013 – Des 2023 digunakan sebagai training set.
+   - Data periode Jan 2024 – Okt 2025 digunakan sebagai testing set.
+   - Menetapkan horizon peramalan masa depan selama 12 bulan untuk prediksi 2025–2026.
+4. Pemodelan ARIMA
+   - Menjalankan auto.arima(train_ts, seasonal = FALSE) untuk menentukan orde optimal ARIMA (p, d, q) berdasarkan AICc.
+   - Estimasi parameter dilakukan dengan Maximum Likelihood Estimation (MLE).
+   - Menerapkan diagnostik residual (Ljung–Box, ACF/PACF residual, normalitas) untuk memastikan residual bersifat white noise.
+   - Melakukan peramalan in-sample, out-of-sample (test), dan masa depan (2025–2026).
+5. Pemodelan SARIMA
+   - Menjalankan auto.arima(train_ts, seasonal = TRUE) untuk menangkap pola musiman bulanan (m = 12).
+   - Fungsi otomatis menentukan orde terbaik (p, d, q)(P, D, Q)12 berdasarkan AICc dan diagnostik residual.
+   - Estimasi parameter dilakukan dengan Maximum Likelihood Estimation (MLE).
+   - Menerapkan diagnostik residual (Ljung–Box, ACF/PACF residual, normalitas) untuk memastikan residual bersifat white noise.
+   - Melakukan peramalan in-sample, out-of-sample (test), dan masa depan (2025–2026).
+6. Pemodelan LSTM
+   - Normalisasi data menggunakan Min–Max scaling pada data berdasarkan training set saja untuk menghindari data leakage.
+   - Membentuk dataset sekuensial (sliding window) untuk melatih model.
+   - Membangun arsitektur LSTM (jumlah neuron, dropout, activation).
+   - Kompilasi model (loss = MSE, optimizer = Adam) dan penerapan early stopping untuk mencegah overfitting.
+   - Melatih model dengan validation split pada training set dan memonitor kurva training/validation loss.
+   - Melakukan peramalan in-sample, out-of-sample (test) secara recursive, serta prediksi masa depan (2025–2026).
+   - Mengembalikan skala prediksi ke satuan harga asli (inverse scaling).
+7. Evaluasi Kinerja Model
+   - Perbandingan model dilakukan menggunakan tiga ukuran kesalahan, yaitu RMSE, MAE, dan MAPE.
+   - Menyajikan tabel perbandingan metrik dan plot prediksi vs aktual untuk masing-masing model.
+8. Sintesis Hasil & Rekomendasi
+   - Menentukan model dengan performa terbaik berdasarkan hasil _error metrics_.
+   - Memberikan rekomendasi penggunaan model dalam operasional prediksi harga beras bulanan.
 
 ---
 
@@ -46,67 +78,97 @@ Dengan membandingkan dua metode ini, diharapkan proyek dapat memberikan **rekome
 
 ## 🧠 Teknologi dan Tools yang Digunakan  
 
-| Kategori           | Tools / Library                                |
-|--------------------|-----------------------------------------------|
-| Bahasa Pemrograman  | R                                             |
-| Time Series Analisis| `forecast`, `tseries`, `stats`, `keras`, `tensorflow` |
-| Visualisasi Data    | `ggplot2`, `plotly`, `dygraphs`               |
-| Pengelolaan Data    | `dplyr`, `tidyr`, `readr`                      |
-| Evaluasi Model      | MAE, RMSE, MAPE, R²                            |
+| Kategori              | Tools / Library                                                                 |
+|-----------------------|----------------------------------------------------------------------------------|
+| Bahasa Pemrograman    | R                                                                                |
+| Data Input / Output   | `readxl`, `readr`                                                                |
+| Pengolahan Data       | `dplyr`, `tidyr`, `tibble`, `lubridate`                                          |
+| Visualisasi Data      | `ggplot2`, `gridExtra` (indirect), base R                                        |
+| Time Series Model     | `forecast` (ARIMA, SARIMA), `tseries` (ADF), `stats`                             |
+| Deep Learning         | `keras`, `tensorflow`                                                            |
+| Evaluasi Model        | `Metrics` (RMSE, MAE, MAPE)                                                      |
+| Lainnya               | `base`, `cat`, dan fungsi utilitas bawaan R                                     |
 
 ---
 
 ## 🗂️ Struktur Proyek  
 
-Prediksi-Harga-Beras-Harian/
-├── 📁 data/  
-│   ├── harga_beras_harian.csv                # Dataset harga beras harian (Agustus 2022–Juli 2025)  
-│   └── data_preprocessed.csv                 # Data setelah preprocessing  
+```
+📂 Prediksi-Harga-Beras-Harian/
 │
-├── 📁 scripts/  
-│   ├── sarima_model.R                        # Script analisis dan pemodelan SARIMA  
-│   ├── lstm_model.R                          # Script analisis dan pemodelan LSTM  
-│   ├── evaluation_metrics.R                  # Perhitungan MAE, RMSE, MAPE, R²  
-│   └── visualization.R                       # Visualisasi tren dan hasil prediksi  
+├── 📂 data/
+│   ├── harga_beras_harian.csv          # Dataset harga beras harian (Agustus 2022–Juli 2025)
+│   └── data_preprocessed.csv           # Data setelah preprocessing
 │
-├── 📁 outputs/  
-│   ├── sarima_forecast.png                   # Grafik hasil prediksi SARIMA  
-│   ├── lstm_forecast.png                     # Grafik hasil prediksi LSTM  
-│   ├── comparison_plot.png                   # Perbandingan kedua model  
-│   └── model_evaluation.csv                  # Hasil evaluasi performa model  
+├── 📂 scripts/
+│   ├── arima_model.R                   # Script analisis & pemodelan ARIMA(level)
+│   ├── sarima_model.R                  # Script analisis & pemodelan SARIMA(level)
+│   ├── lstm_model.R                    # Script analisis & pemodelan LSTM(min-max scaling)
+│   ├── evaluation_metrics.R            # Perhitungan RMSE, MAE, MAPE
+│   └── visualization.R                 # Visualisasi tren, fitted, dan forecasting
 │
-├── 📁 assets/  
-│   └── header_beras.png                      # Gambar header untuk README  
+├── 📂 outputs/
+│   ├── arima_forecast.png              # Grafik hasil prediksi ARIMA
+│   ├── sarima_forecast.png             # Grafik hasil prediksi SARIMA
+│   ├── lstm_forecast.png               # Grafik hasil prediksi LSTM
+│   ├── comparison_plot.png             # Perbandingan ketiga model (test + future)
+│   └── model_evaluation.csv            # Tabel evaluasi performa model
 │
-├── README.md                                 # Dokumentasi proyek utama  
-├── requirements.txt                          # (opsional) daftar library R yang digunakan  
-└── .gitignore                                # File untuk mengabaikan data sensitif / besar
+├── 📂 results/                             # Folder hasil otomatis dari script final
+│   ├── predictions_test_per_model_level.csv     # Prediksi test ARIMA/SARIMA/LSTM (level)
+│   ├── forecast_future_per_model_level.csv      # Prediksi future 12 bulan
+│   ├── metrics_test_level.csv                   # RMSE, MAE, MAPE
+│   ├── arima_plot_level.png
+│   ├── sarima_plot_level.png
+│   ├── lstm_plot_level.png
+│   └── compare_forecasts_level.png
+│
+├── 📂 assets/
+│   └── header_beras.png                # Gambar header untuk README
+│
+├── README.md                           # Dokumentasi proyek utama
+├── requirements.txt                    # Daftar library R yang digunakan
+└── .gitignore                          # Mengabaikan data sensitif dan file besar
+```
 
 ---
 
 ## 📦 Fitur Proyek
-1. 📊 **Visualisasi Data Harian**
-   - Menampilkan grafik tren harga beras harian dari Agustus 2022–Juli 2025.
-   - Analisis pola musiman, tren, dan deteksi outlier menggunakan `ggplot2` dan `plotly`.
-2. 🔍 **Preprocessing Data**
-   - Membersihkan data mentah dari nilai kosong (missing values) dan duplikasi.
-   - Transformasi data menjadi format time series yang siap dipakai untuk pemodelan.
-3. ⚙️ **Pemodelan SARIMA**
-   - Menentukan parameter optimal (p, d, q)(P, D, Q)m.
-   - Menganalisis pola musiman dan tren jangka pendek dengan library `forecast`.
-4. 🧠 **Pemodelan LSTM**
-   - Membangun model berbasis jaringan saraf berulang menggunakan `keras` dan `tensorflow`.
-   - Menangkap hubungan non-linear dan dependensi jangka panjang antar waktu.
-5. 📈 **Evaluasi dan Perbandingan Model**
-   - Menghitung metrik performa seperti MAE, RMSE, MAPE, dan R².
-   - Membandingkan akurasi hasil prediksi antara SARIMA dan LSTM.
-6. 🖼️ **Visualisasi Hasil Prediksi**
-   - Menampilkan hasil prediksi vs data aktual dalam grafik interaktif.
-   - Menyediakan visual perbandingan performa antara kedua metode.
-7. 📑 **Laporan dan Rekomendasi**
-   - Menyajikan hasil akhir analisis dalam format tabel, grafik, dan kesimpulan.
-   - Memberikan rekomendasi metode terbaik untuk prediksi harga beras jangka pendek.
-
+1. 📊 **Visualisasi Data**
+   - Menampilkan grafik tren harga beras bulanan.
+   - Analisis pola musiman, tren jangka panjang, serta identifikasi outlier menggunakan ggplot2.
+   - Menyediakan visual eksploratif sebelum dilakukan pemodelan time series.
+2. 🧹 **Preprocessing Data**
+   - Membersihkan data dari missing values, duplikasi, dan nilai ekstrem.
+   - Mengonversi data menjadi format time series bulanan untuk ARIMA, SARIMA, dan LSTM.
+   - Menyimpan hasil preprocessing ke data_preprocessed.csv.
+3. 📈 **Pemodelan ARIMA**
+   - Membangun model ARIMA sesuai syntax-mu: ARIMA(2,2,0).
+   - Menggunakan transformasi log() apabila diperlukan untuk stabilisasi varians.
+   - Menyediakan plot hasil prediksi ARIMA dan evaluasinya.
+   - Membandingkan performa ARIMA dengan SARIMA dan LSTM.
+4. ❄️ **Pemodelan SARIMA**
+   - Menentukan parameter optimal (p,d,q)(P,D,Q)m menggunakan auto.arima() dan pemeriksaan pola ACF/PACF.
+   - Menangkap pola musiman bulanan dalam data harga beras.
+   - Menghasilkan grafik prediksi SARIMA: sarima_forecast.png.
+5. 🧠 **Pemodelan LSTM**
+   - Membangun jaringan saraf LSTM menggunakan keras dan tensorflow.
+   - Menggunakan windowing, min-max scaling, dan reshaping sesuai format input 3D.
+   - Menangkap pola non-linear dan dependensi jangka panjang antar waktu.
+   - Menghasilkan grafik prediksi LSTM: lstm_forecast.png.
+6. 📐 **Evaluasi & Perbandingan Model**
+   - Menghitung MAE, RMSE, dan MAPE melalui script evaluation_metrics.R.
+   - Membandingkan tiga model sekaligus: ARIMA vs SARIMA vs LSTM.
+   - Menyimpan tabel evaluasi di model_evaluation.csv.
+   - Menyediakan visual perbandingan performa: comparison_plot.png.
+7. 📊 **Visualisasi Hasil Prediksi**
+   - Menampilkan overlay antara prediksi dan data aktual dalam grafik yang mudah dibaca.
+   - Memberikan visual yang langsung menunjukkan model mana yang paling akurat.
+   - Semua grafik disimpan di folder outputs/.
+8. 📑 **Laporan & Rekomendasi**
+   - Memberikan rekomendasi model prediksi terbaik berdasarkan performa jangka pendek.
+   - Dokumentasi lengkap tersedia di README.md.
+     
 ---
 
 ## 📊 Hasil dan Implementasi Fitur
@@ -175,12 +237,10 @@ Prediksi-Harga-Beras-Harian/
 
 ## 📚 Referensi
 
-1. Badan Pangan Nasional (Bapanas). Panel Harga Pangan. [https://panelharga.badanpangan.go.id](https://panelharga.badanpangan.go.id).
+1. Badan Pusat Statistik. (2025). _Rata-Rata Harga Beras Bulanan di Tingkat Penggilingan Menurut Kualitas_. Diakses pada 22 November 2025, dari https://www.bps.go.id/id/statistics-table/2/NTAwIzI=/rata-rata-harga-beras-bulanan-di-tingkat-penggilingan-menurut-kualitas.html.
 2. Box, G. E. P., Jenkins, G. M., Reinsel, G. C., & Ljung, G. M. (2015). *Time Series Analysis: Forecasting and Control* (5th ed.). Wiley.  
 3. Greff, K., Srivastava, R. K., Koutník, J., Steunebrink, B. R., & Schmidhuber, J. (2017). LSTM: A Search Space Odyssey. *IEEE Transactions on Neural Networks and Learning Systems*, 28(10), 2222-2232.  
 4. Hochreiter, S., & Schmidhuber, J. (1997). Long Short-Term Memory. *Neural Computation*, 9(8), 1735-1780.  
-5. Hyndman, R. J., & Athanasopoulos, G. (2018). *Forecasting: Principles and Practice* (2nd ed.). OTexts. Available at: https://otexts.com/fpp3/.
-6. Zhang, G., Patuwo, B. E., & Hu, M. Y. (1998). Forecasting with artificial neural networks: The state of the art. *International Journal of Forecasting*, 14(1), 35-62.  
 
 ---
 
