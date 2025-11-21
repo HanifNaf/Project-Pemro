@@ -12,7 +12,8 @@ library(lubridate)
 library(ggplot2)
 
 # Load data dari Excel
-df_wide <- read_excel("Imputasi Excel - DATA ALL 2022-2024.xlsx")
+setwd("C:/Users/inria/OneDrive/Dokumen/S2 Statistika IPB/Semester 1/Pemrograman Statistika/Projek Github")
+df_wide <- read_excel("Imputasi Excel - DATA ALL AGS 2022-JUL 2025.xlsx")
 
 # Lihat struktur data
 dim(df_wide)
@@ -272,7 +273,7 @@ list(min = min_harga, max = max_harga, kuartil = kuartil)
 
 # Distribusi: histogram & density
 ggplot(harga_beras_nasional, aes(x = harga_nasional)) +
-  geom_histogram(bins = 30) +
+  geom_histogram(bins = 30, color= "skyblue", fill = "skyblue") +
   labs(title = "Histogram Harga Nasional", x = "Harga (Rp/kg)", y = "Frekuensi") +
   theme_minimal()
 ggsave("Distribusi harga (histogram).png", width = 12, height = 6, dpi = 300)
@@ -285,11 +286,12 @@ ggsave("Density harga nasional.png", width = 12, height = 6, dpi = 300)
 
 
 # Melihat outlier dengan boxplot
-boxplot(harga_beras_nasional$harga_nasional,
-        main = "Boxplot Harga Nasional",
-        ylab = "Harga (Rp/kg)",
-        col = "lightblue")
-ggsave("Boxplot harga nasional.png", width = 12, height = 6, dpi = 300)
+boxplot_nasional <- ggplot(harga_beras_nasional, aes(x = "", y = harga_nasional)) +
+  geom_boxplot(fill = "lightblue") +
+  labs(title = "Boxplot Harga Nasional", y = "Harga (Rp/kg)", x = "") +
+  theme_minimal()
+
+ggsave("Boxplot harga nasional.png", plot = boxplot_nasional, width = 12, height = 6, dpi = 300)
 
 
 # Outlier: IQR method (numerik)
