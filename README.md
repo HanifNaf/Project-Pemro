@@ -3,7 +3,7 @@
 <img width="1100" height="350" alt="header project pemro" src="https://github.com/user-attachments/assets/cc96082d-6d0c-4db8-9c5e-1dbf19945447" />
 
 ## 📖 Deskripsi Proyek  
-Proyek ini bertujuan untuk **membandingkan performa dua metode prediksi time series — SARIMA (Seasonal Autoregressive Integrated Moving Average) dan LSTM (Long Shot Term Memory) — dalam memperkirakan harga beras harian di Indonesia**.  Data yang digunakan adalah **harga harian beras medium** untuk periode **Januari 2022–Desember 2024**, yang bersumber dari **Badan Pangan Nasional (Bapanas)** melalui situs [panelharga.badanpangan.go.id](https://panelharga.badanpangan.go.id). Diharapkan dapat diperoleh metode yang paling akurat terbaik untuk memprediksi harga beras guna mendukung kebijakan stabilitas harga pangan. _“Prediksi yang akurat hari ini, untuk ketahanan pangan esok hari.”_
+Proyek ini bertujuan untuk **membandingkan performa dua metode prediksi time series — SARIMA (Seasonal Autoregressive Integrated Moving Average) dan LSTM (Long Shot Term Memory) — dalam memperkirakan harga beras harian di Indonesia**.  Data yang digunakan adalah **harga harian beras medium** untuk periode **Agustus 2022–Juli 2025**, yang bersumber dari **Badan Pangan Nasional (Bapanas)** melalui situs [panelharga.badanpangan.go.id](https://panelharga.badanpangan.go.id). Diharapkan dapat diperoleh metode yang paling akurat terbaik untuk memprediksi harga beras guna mendukung kebijakan stabilitas harga pangan. _“Prediksi yang akurat hari ini, untuk ketahanan pangan esok hari.”_
 
 ---
 
@@ -15,7 +15,7 @@ Dengan membandingkan dua metode ini, diharapkan proyek dapat memberikan **rekome
 ---
 
 ## 🎯 Tujuan  
-1. Menganalisis pola fluktuasi harga beras harian di Indonesia periode 2022–2024.  
+1. Menganalisis pola fluktuasi harga beras harian di Indonesia periode Agustus 2022–Juli 2025.  
 2. Membangun dua model prediksi — SARIMA dan LSTM — menggunakan data harian.  
 3. Membandingkan performa kedua model berdasarkan metrik evaluasi **MAE, RMSE, MAPE, dan R²**.  
 4. Menentukan metode paling efektif untuk prediksi harga beras jangka pendek (harian).  
@@ -28,7 +28,7 @@ Dengan membandingkan dua metode ini, diharapkan proyek dapat memberikan **rekome
 - Badan Pangan Nasional (Bapanas) – Panel Harga Pangan: [panelharga.badanpangan.go.id](https://panelharga.badanpangan.go.id)  
 
 **Langkah Analisis:**  
-1. Pengumpulan data harga beras medium harian Januari 2022–Desember 2024.  
+1. Pengumpulan data harga beras medium harian Agustus 2022–Juli 2025.  
 2. Integrasi dan preprocessing data untuk memastikan kelengkapan dan konsistensi.  
 3. Eksplorasi data: visualisasi tren musiman, outlier, dan korelasi.  
 4. Penerapan model SARIMA dengan pemilihan parameter optimal (p, d, q)(P, D, Q)m.  
@@ -60,7 +60,7 @@ Dengan membandingkan dua metode ini, diharapkan proyek dapat memberikan **rekome
 
 Prediksi-Harga-Beras-Harian/
 ├── 📁 data/  
-│   ├── harga_beras_harian.csv                # Dataset harga beras harian (2022–2024)  
+│   ├── harga_beras_harian.csv                # Dataset harga beras harian (Agustus 2022–Juli 2025)  
 │   └── data_preprocessed.csv                 # Data setelah preprocessing  
 │
 ├── 📁 scripts/  
@@ -86,7 +86,7 @@ Prediksi-Harga-Beras-Harian/
 
 ## 📦 Fitur Proyek
 1. 📊 **Visualisasi Data Harian**
-   - Menampilkan grafik tren harga beras harian dari tahun 2022–2024.
+   - Menampilkan grafik tren harga beras harian dari Agustus 2022–Juli 2025.
    - Analisis pola musiman, tren, dan deteksi outlier menggunakan `ggplot2` dan `plotly`.
 2. 🔍 **Preprocessing Data**
    - Membersihkan data mentah dari nilai kosong (missing values) dan duplikasi.
