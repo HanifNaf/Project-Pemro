@@ -90,8 +90,7 @@ Dengan membandingkan ketiga pendekatan tersebut, penelitian ini bertujuan mengid
   
 **9. Peramalan Periode Mendatang**
 - Memilih model dengan performa terbaik pada test set
-- Menghasilkan peramalan ke depan (November 2025 - Oktober 2026)
-- Menyajikan grafik interval prediksi untuk mengukur ketidakpastian
+- Melakukan peramalan ke depan (November 2025 - Oktober 2026) dengan menggunakan model terbaik
   
 ---
 
@@ -141,7 +140,8 @@ forecast-harga-beras/
 │   │   ├── stl_decomposition_log.png
 │   │   ├── seasonal_boxplot_log.png
 │   │   ├── acf_pacf_level_log.png
-│   │   └── acf_pacf_diff1_log.png
+│   │   ├── acf_pacf_diff1_log.png
+│   │   └── acf_pacf_diff1_D1_log.png
 │   ├── arima/
 │   │   ├── arima_residual_check.png
 │   │   ├── arima_acf_pacf_residual.png
@@ -155,7 +155,7 @@ forecast-harga-beras/
 │   │   └── lstm_evaluation_plot.png
 │   └── compare/
 │   │   ├── compare_evaluation_forecast.png
-│   │   └── final_forecast_arima.png
+│   │   └── final_forecast_lstm.png
 │
 ├── results/
 │   ├── descriptive_stats_harga_asli.csv
@@ -172,22 +172,22 @@ forecast-harga-beras/
 ## ⭐ Fitur Proyek
 1. Identifikasi tren harga beras medium di Indonesia
 2. Pembangunan model peramalan harga beras medium dengan ARIMA, SARIMA, dan LSTM
-3. Evaluasi Model dengan menggunakan metrik RMSE, MAE, dan MAPE
-4. Visualisasi hasil peramalan harga beras bulan November 2025 s.d Oktober 2026
+3. Evaluasi model dengan menggunakan metrik RMSE, MAE, dan MAPE
+4. Visualisasi hasil peramalan harga beras bulan November 2025 s.d Oktober 2026 dengan model terbaik
      
 ---
 
 ## 📊 Cuplikan Visual
 <p align="center">
-  <img width="800" height="600" alt="stl_decomposition_log" src="https://github.com/user-attachments/assets/a3b27d22-d1db-431d-b7d8-0c38aa47e44c" />
+  <img width="3000" height="1500" alt="ts_plot_level" src="https://github.com/user-attachments/assets/a191d11e-abb3-47a3-8222-47c604bae256" />
 <p align="center"><i>Gambar 2. Tren Harga Beras Medium di Indonesia</i></p>
 
 <p align="center">
-  <img width="3600" height="1800" alt="compare_evaluation_forecasts" src="https://github.com/user-attachments/assets/777840fc-d580-421a-9ecd-0c608d317cd2" />
+  <img width="3600" height="1800" alt="compare_evaluation_forecasts" src="https://github.com/user-attachments/assets/9bb42580-be7e-4266-abfb-30134d371c4c" />
 <p align="center"><i>Gambar 3. Pemodelan Harga Beras Medium dengan ARIMA, SARIMA, dan LSTM</i></p>
 
 <p align="center">
-  <img width="3600" height="1800" alt="final_forecast_arima" src="https://github.com/user-attachments/assets/8914353f-85d5-4b9c-997a-188fe1db3e79" />
+  <img width="3600" height="1800" alt="final_forecast_lstm" src="https://github.com/user-attachments/assets/d359ce4f-c8ff-432a-832f-347fd18f9bb2" />
 <p align="center"><i>Gambar 4. Hasil Peramalan Harga Beras Medium Bulan November 2025-Oktober 2026 (Model Terbaik)</i></p>
 
 ---
@@ -198,14 +198,9 @@ forecast-harga-beras/
   <chr>       <dbl> <dbl>  <dbl>
 1 ARIMA(log)  1064. 1016. 0.0796
 2 SARIMA(log) 1549. 1393. 0.109 
-3 LSTM(log)   1489. 1367. 0.105 
+3 LSTM(log)    968.  779. 0.0589
 ```
   
----
-
-## 🛠️ R-Shiny
-Dashboard R-Shiny untuk Peramalan Harga Beras Medium dengan Model Terbaik: ...
-
 ---
 
 ## 📚 Referensi
