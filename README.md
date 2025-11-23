@@ -115,7 +115,7 @@ forecast-harga-beras/
 │   ├── 02_arima_log.R                         # ARIMA(log) + residual check + prediksi test set + simpan hasil
 │   ├── 03_sarima_log.R                        # SARIMA(log) + residual check + prediksi test set + simpan hasil
 │   ├── 04_lstm_log.R                          # LSTM (log + min-max) + prediksi test set + simpan hasil
-│   ├── 05_compare_models.R                    # visualisasi perbandingan model
+│   ├── 05_compare_models.R                    # perbandingan model (metrics + visualisasi)
 │   └── 06_run_all.R                           # gabungan syntax R yang dijalankan
 │
 ├── models/
