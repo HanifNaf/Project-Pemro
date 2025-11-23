@@ -154,8 +154,8 @@ forecast-harga-beras/
 │   │   ├── lstm_loss_curve.png
 │   │   └── lstm_evaluation_plot.png
 │   └── compare/
-│   │   ├── compare_evaluation_forecast.png
-│   │   └── final_forecast_lstm.png
+│       ├── compare_evaluation_forecast.png
+│       └── final_forecast_lstm.png
 │
 ├── results/
 │   ├── descriptive_stats_harga_asli.csv
