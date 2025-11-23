@@ -1,4 +1,4 @@
-# 🍚 Model Prediktif Harga Beras: Komparasi ARIMA, SARIMA, dan LSTM
+# 🍚 Model Prediktif Harga Beras: Komparasi ARIMA, SARIMA, dan LSTM 🍚
 
 <img width="1100" height="350" alt="header project pemro" src="https://github.com/user-attachments/assets/cc96082d-6d0c-4db8-9c5e-1dbf19945447" />
 
@@ -115,7 +115,7 @@ forecast-harga-beras/
 │   ├── 02_arima_log.R                         # ARIMA(log) + residual check + prediksi test set + simpan hasil
 │   ├── 03_sarima_log.R                        # SARIMA(log) + residual check + prediksi test set + simpan hasil
 │   ├── 04_lstm_log.R                          # LSTM (log + min-max) + prediksi test set + simpan hasil
-│   ├── 05_plot_compare_models.R               # visualisasi perbandingan model
+│   ├── 05_compare_models.R                    # visualisasi perbandingan model
 │   └── 06_run_all.R                           # gabungan syntax R yang dijalankan
 │
 ├── models/
