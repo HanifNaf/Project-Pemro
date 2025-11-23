@@ -54,39 +54,34 @@ Dengan membandingkan ketiga pendekatan tersebut, penelitian ini bertujuan mengid
   - **Training set:** Jan 2013 – Des 2023
   - **Test set:** Jan 2024 – Okt 2025
   
-**3. Transformasi dan Pra-pengolahan**
+**3. Transformasi Data**
 - Menerapkan transformasi logaritmik untuk menstabilkan varians dan mengurangi heteroskedastisitas
 - Melakukan normalisasi min–maks khusus untuk model LSTM
   
 **4. Eksplorasi Data**
 - Menampilkan statistik deskriptif awal seperti nilai minimum, maksimum, rata-rata, dan tren umum harga
 - Membuat visualisasi deret waktu untuk mengidentifikasi tren jangka panjang
-- Memeriksa kestasioneran awal dengan:
-  - Plot ACF dan PACF harga asli dan harga log
-  - Pemeriksaan visual perubahan varians sebelum dan sesudah transformasi log
-- Mengidentifikasi potensi outlier atau perubahan struktural pada grafik deret waktu
-- Mengevaluasi pola musiman secara visual berdasarkan puncak dan lembah yang berulang tahunan
+- Memeriksa kestasioneran awal dengan membuat plot ACF dan PACF harga asli dan harga log
+- Mengidentifikasi potensi outlier pada grafik deret waktu
   
-**5. Pemodelan ARIMA (Log)**
-- Mengestimasi model ARIMA log menggunakan fungsi `auto.arima()` untuk pemilihan orde (p, d, q) secara otomatis berdasarkan AIC/AICc/BIC
-- Setelah model terpilih, dilakukan estimasi parameter dan diagnostik residual (ACF residual, uji Ljung–Box, uji normalitas) untuk memastikan asumsi white-noise terpenuhi
+**5. Pemodelan ARIMA**
+- Mengestimasi model ARIMA menggunakan fungsi `auto.arima()` untuk pemilihan orde (p, d, q) secara otomatis berdasarkan AIC/AICc/BIC
+- Melakukan diagnostik residual (ACF residual, uji Ljung–Box, uji normalitas)
   
-**6. Pemodelan SARIMA (Log)**
-- Menggunakan fungsi `auto.arima(..., seasonal = TRUE)` untuk menangkap pola musiman. Pemilihan komponen musiman (P, D, Q, s) dilakukan otomatis oleh algoritma
-- Model SARIMA yang dihasilkan dievaluasi melalui AIC/AICc/BIC dan diuji diagnostik residual (khususnya autocorrelation pada lag musiman dan non-musiman)
+**6. Pemodelan SARIMA**
+- Mengestimasi `auto.arima(..., seasonal = TRUE)` untuk menangkap pola musiman. Pemilihan komponen musiman (P, D, Q, s) dilakukan secara otomatis berdasarkan AIC/AICc/BIC
+- Melakukan diagnostik residual (ACF residual, uji Ljung–Box, uji normalitas)
   
-**7. Pemodelan LSTM (Log)**
-- Menyiapkan dataset dalam format supervised (sequence-to-one)
+**7. Pemodelan LSTM**
 - Melakukan normalisasi min–maks pada data
 - Membentuk jendela sliding window untuk input jaringan
-- Melatih model LSTM untuk mempelajari pola non-linier harga
-- Memantau training loss dan validation loss untuk menghindari overfitting
+- Melatih model LSTM
 - Melakukan inverse normalization pada hasil prediksi
   
 **8. Evaluasi Kinerja Model**
 - Menghitung RMSE, MAE, dan MAPE pada test set
 - Melakukan evaluasi visual antara nilai aktual dan prediksi
-- Membandingkan performa ARIMA(log), SARIMA(log), dan LSTM
+- Membandingkan performa model ARIMA, SARIMA, dan LSTM
   
 **9. Peramalan Periode Mendatang**
 - Memilih model dengan performa terbaik pada test set
@@ -99,13 +94,10 @@ Dengan membandingkan ketiga pendekatan tersebut, penelitian ini bertujuan mengid
 | **Kategori**               | **Tools / Library** |
 |---------------------------|----------------------|
 | **Bahasa Pemrograman**    | R |
-| **Data Input / Output**   | `readxl`, `readr`, `write_csv` |
 | **Pengolahan Data**       | `dplyr`, `tidyr`, `tibble`, `lubridate`, `zoo` |
 | **Visualisasi Data**      | `ggplot2`, `acf`, `pacf`, `stl`, *base R plotting* |
 | **Model Deret Waktu**     | `forecast` (ARIMA, SARIMA, `auto.arima`, `forecast`, `checkresiduals`), `tseries` (`adf.test`, `jarque.bera.test`), `stats` (fungsi dasar time series) |
 | **Deep Learning**         | `keras`, `tensorflow` |
-| **Evaluasi Model**        | `Metrics` (RMSE, MAE, MAPE) |
-| **Transformasi & Scaling**| `log()`, `exp()`, normalisasi *min–max* manual |
 
 ---
 
@@ -119,14 +111,12 @@ forecast-harga-beras/
 │   └── harga_beras_clean.xlsx                 # hasil cleaning tanggal
 │
 ├── R/
-│   ├── 01_load_clean_preprocess.R             # load, cleaning, tambah log
-│   ├── 02_make_ts_and_split.R                 # ts(), window(), train/test
-│   ├── 03_arima_log.R                         # ARIMA(log) + residual check
-│   ├── 04_sarima_log.R                        # SARIMA(log) + residual check
-│   ├── 05_lstm_log.R                          # LSTM (log + min-max)
-│   ├── 06_predict_each_model.R                # gabungan semua prediksi
-│   ├── 07_plot_compare_models.R               # visualisasi perbandingan model
-│   └── 08_export_results.R                    # export CSV & PNG
+│   ├── 01_load_preprocess.R                   # load, transformasi log, ts(), window(), train/test
+│   ├── 02_arima_log.R                         # ARIMA(log) + residual check + prediksi test set + simpan hasil
+│   ├── 03_sarima_log.R                        # SARIMA(log) + residual check + prediksi test set + simpan hasil
+│   ├── 04_lstm_log.R                          # LSTM (log + min-max) + prediksi test set + simpan hasil
+│   ├── 05_plot_compare_models.R               # visualisasi perbandingan model
+│   └── 06_run_all.R                           # gabungan syntax R yang dijalankan
 │
 ├── models/
 │   ├── arima_model_log.rds
@@ -157,15 +147,12 @@ forecast-harga-beras/
 │       ├── compare_evaluation_forecast.png
 │       └── final_forecast_lstm.png
 │
-├── results/
-│   ├── descriptive_stats_harga_asli.csv
-│   ├── outliers_identified_dates.csv
-│   ├── predictions_test_per_model_log.csv
-│   ├── metrics_test_log.csv
-│   └── final_forecast_model_terbaik.csv
-│
-└── run_all.R
-
+└── results/
+    ├── descriptive_stats_harga_asli.csv
+    ├── outliers_identified_dates.csv
+    ├── predictions_test_per_model_log.csv
+    ├── metrics_test_log.csv
+    └── final_forecast_model_terbaik.csv
 ```
 ---
 
@@ -179,7 +166,7 @@ forecast-harga-beras/
 
 ## 📊 Cuplikan Visual
 <p align="center">
-  <img width="3000" height="1500" alt="ts_plot_level" src="https://github.com/user-attachments/assets/a191d11e-abb3-47a3-8222-47c604bae256" />
+  <img width="800" height="600" alt="stl_decomposition_log" src="https://github.com/user-attachments/assets/1ec87e14-6dfe-4ba6-bc34-e2b43f777712" />
 <p align="center"><i>Gambar 2. Tren Harga Beras Medium di Indonesia</i></p>
 
 <p align="center">
@@ -197,7 +184,7 @@ forecast-harga-beras/
   Model        RMSE   MAE   MAPE
   <chr>       <dbl> <dbl>  <dbl>
 1 ARIMA(log)  1064. 1016. 0.0796
-2 SARIMA(log) 1549. 1393. 0.109 
+2 SARIMA(log) 1549. 1393. 0.1090 
 3 LSTM(log)    968.  779. 0.0589
 ```
   
