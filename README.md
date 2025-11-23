@@ -116,10 +116,8 @@ Dengan membandingkan ketiga pendekatan tersebut, penelitian ini bertujuan mengid
 forecast-harga-beras/
 │
 ├── data/
-│   ├── raw/
-│   │   └── Data Harga Beras 2013-2025.xlsx
-│   └── processed/
-│       └── harga_beras_clean.xlsx             # hasil cleaning tanggal
+│   ├── Data Harga Beras 2013-2025.xlsx
+│   └── harga_beras_clean.xlsx                 # hasil cleaning tanggal
 │
 ├── R/
 │   ├── 01_load_clean_preprocess.R             # load, cleaning, tambah log
@@ -138,25 +136,33 @@ forecast-harga-beras/
 │
 ├── plots/
 │   ├── eda/
-│   │   ├── plot_raw.png
-│   │   └── plot_log.png
+│   │   ├── ts_plot_level.png
+│   │   ├── ts_plot_log.png
+│   │   ├── stl_decomposition_log.png
+│   │   ├── seasonal_boxplot_log.png
+│   │   ├── acf_pacf_level_log.png
+│   │   └── acf_pacf_diff1_log.png
 │   ├── arima/
-│   │   ├── arima_residual_log.png
-│   │   └── arima_forecast_log.png
+│   │   ├── arima_residual_check.png
+│   │   ├── arima_acf_pacf_residual.png
+│   │   └── arima_evaluation_plot.png
 │   ├── sarima/
-│   │   ├── sarima_residual_log.png
-│   │   └── sarima_forecast_log.png
+│   │   ├── sarima_residual_check.png
+│   │   ├── sarima_acf_pacf_residual.png
+│   │   └── sarima_evaluation_plot.png
 │   ├── lstm/
 │   │   ├── lstm_loss_curve.png
-│   │   └── lstm_forecast_log.png
+│   │   └── lstm_evaluation_plot.png
 │   └── compare/
-│       └── compare_arima_sarima_lstm_log.png
+│   │   ├── compare_evaluation_forecast.png
+│   │   └── final_forecast_arima.png
 │
 ├── results/
+│   ├── descriptive_stats_harga_asli.csv
+│   ├── outliers_identified_dates.csv
 │   ├── predictions_test_per_model_log.csv
-│   ├── forecast_future_per_model_log.csv
 │   ├── metrics_test_log.csv
-│   └── compare_data_log.csv
+│   └── final_forecast_arima.csv
 │
 └── run_all.R
 
@@ -173,16 +179,16 @@ forecast-harga-beras/
 
 ## 📊 Cuplikan Visual
 <p align="center">
-  <img width="800" height="600" alt="stl_decomposition_log" src="https://github.com/user-attachments/assets/9c585f31-f007-4193-b16f-c902294a4869" />
+  <img width="800" height="600" alt="stl_decomposition_log" src="https://github.com/user-attachments/assets/a3b27d22-d1db-431d-b7d8-0c38aa47e44c" />
 <p align="center"><i>Gambar 2. Tren Harga Beras Medium di Indonesia</i></p>
 
 <p align="center">
-  <img width="3600" height="1800" alt="compare_evaluation_forecasts" src="https://github.com/user-attachments/assets/88eed7a4-0f27-4958-b86b-6a215bae7916" />
+  <img width="3600" height="1800" alt="compare_evaluation_forecasts" src="https://github.com/user-attachments/assets/777840fc-d580-421a-9ecd-0c608d317cd2" />
 <p align="center"><i>Gambar 3. Pemodelan Harga Beras Medium dengan ARIMA, SARIMA, dan LSTM</i></p>
 
 <p align="center">
-  <img width="3600" height="1800" alt="final_forecast_arima" src="https://github.com/user-attachments/assets/758da716-5a4b-43ab-9a55-bffa03dde2e0" />
-<p align="center"><i>Gambar 4. Hasil Peramalan Harga Beras Medium Bulan November 2025-Oktober 2026</i></p>
+  <img width="3600" height="1800" alt="final_forecast_arima" src="https://github.com/user-attachments/assets/8914353f-85d5-4b9c-997a-188fe1db3e79" />
+<p align="center"><i>Gambar 4. Hasil Peramalan Harga Beras Medium Bulan November 2025-Oktober 2026 (Model Terbaik)</i></p>
 
 ---
 
@@ -192,7 +198,7 @@ forecast-harga-beras/
   <chr>       <dbl> <dbl>  <dbl>
 1 ARIMA(log)  1064. 1016. 0.0796
 2 SARIMA(log) 1549. 1393. 0.109 
-3 LSTM(log)   1286. 1152. 0.0880
+3 LSTM(log)   1489. 1367. 0.105 
 ```
   
 ---
