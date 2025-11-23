@@ -1,4 +1,4 @@
-# 🍚 Prediksi Harga Beras Medium di Indonesia Menggunakan Metode ARIMA, SARIMA, dan LSTM
+# 🍚 Model Prediktif Harga Beras: Komparasi ARIMA, SARIMA, dan LSTM
 
 <img width="1100" height="350" alt="header project pemro" src="https://github.com/user-attachments/assets/cc96082d-6d0c-4db8-9c5e-1dbf19945447" />
 
