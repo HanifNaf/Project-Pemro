@@ -164,8 +164,8 @@ forecast-harga-beras/
 ---
 
 ## ⭐ Fitur Proyek
-1. Identifikasi tren harga beras medium bulanan
-2. Pemodelan dengan ARIMA, SARIMA dan LSTM
+1. Identifikasi tren harga beras medium di Indonesia
+2. Pembangunan model peramalan harga beras medium dengan ARIMA, SARIMA, dan LSTM
 3. Evaluasi Model dengan menggunakan metrik RMSE, MAE, dan MAPE
 4. Visualisasi hasil peramalan harga beras bulan November 2025 s.d Oktober 2026
      
@@ -173,40 +173,38 @@ forecast-harga-beras/
 
 ## 📊 Cuplikan Visual
 <p align="center">
-  <img width="3000" height="2000" alt="Blank diagram (2)" src="https://github.com/user-attachments/assets/67d4c68d-6b22-46f1-8a76-0a4eecf54b66" />
-<p align="center"><i>Gambar 2. Flowchart Metode Prediksi Harga Beras Medium di Indonesia</i></p>
+  <img width="3000" height="1500" alt="ts_plot_level" src="https://github.com/user-attachments/assets/17b877df-d3db-4c75-bd9f-6b30c00dc00d" />
+<p align="center"><i>Gambar 2. Tren Harga Beras Medium di Indonesia</i></p>
 
 <p align="center">
-  <img width="3000" height="2000" alt="Blank diagram (2)" src="https://github.com/user-attachments/assets/67d4c68d-6b22-46f1-8a76-0a4eecf54b66" />
-<p align="center"><i>Gambar 3. Flowchart Metode Prediksi Harga Beras Medium di Indonesia</i></p>
+  <img width="3600" height="1800" alt="compare_evaluation_forecasts" src="https://github.com/user-attachments/assets/88eed7a4-0f27-4958-b86b-6a215bae7916" />
+<p align="center"><i>Gambar 3. Pemodelan Harga Beras Medium dengan ARIMA, SARIMA, dan LSTM</i></p>
 
 <p align="center">
-  <img width="3000" height="2000" alt="Blank diagram (2)" src="https://github.com/user-attachments/assets/67d4c68d-6b22-46f1-8a76-0a4eecf54b66" />
-<p align="center"><i>Gambar 4. Flowchart Metode Prediksi Harga Beras Medium di Indonesia</i></p>
-
-<p align="center">
-  <img width="3000" height="2000" alt="Blank diagram (2)" src="https://github.com/user-attachments/assets/67d4c68d-6b22-46f1-8a76-0a4eecf54b66" />
-<p align="center"><i>Gambar 5. Flowchart Metode Prediksi Harga Beras Medium di Indonesia</i></p>
-
-<p align="center">
-  <img width="3000" height="2000" alt="Blank diagram (2)" src="https://github.com/user-attachments/assets/67d4c68d-6b22-46f1-8a76-0a4eecf54b66" />
-<p align="center"><i>Gambar 6. Flowchart Metode Prediksi Harga Beras Medium di Indonesia</i></p>
+  <img width="3600" height="1800" alt="final_forecast_arima" src="https://github.com/user-attachments/assets/758da716-5a4b-43ab-9a55-bffa03dde2e0" />
+<p align="center"><i>Gambar 4. Hasil Peramalan Harga Beras Medium Bulan November 2025-Oktober 2026</i></p>
 
 ---
 
 ## 🔬 Evaluasi Model Terbaik
-
+```
+  Model        RMSE   MAE   MAPE
+  <chr>       <dbl> <dbl>  <dbl>
+1 ARIMA(log)  1064. 1016. 0.0796
+2 SARIMA(log) 1549. 1393. 0.109 
+3 LSTM(log)   1286. 1152. 0.0880
+```
   
 ---
 
 ## 🛠️ R-Shiny
-Berikut adalah Dashboard R-Shiny berkaitan dengan project yang telah dibuat : ...
+Dashboard R-Shiny untuk Peramalan Harga Beras Medium dengan Model Terbaik: ...
 
 ---
 
 ## 📚 Referensi
 
-1. Badan Pusat Statistik. (2025). _Rata-Rata Harga Beras Bulanan di Tingkat Penggilingan Menurut Kualitas_. Diakses pada 22 November 2025, dari https://www.bps.go.id/id/statistics-table/2/NTAwIzI=/rata-rata-harga-beras-bulanan-di-tingkat-penggilingan-menurut-kualitas.html.
+1. Badan Pusat Statistik. (2025). _Rata-Rata Harga Beras Bulanan di Tingkat Penggilingan Menurut Kualitas_. Diakses pada 15 November 2025, dari https://www.bps.go.id/id/statistics-table/2/NTAwIzI=/rata-rata-harga-beras-bulanan-di-tingkat-penggilingan-menurut-kualitas.html.
 2. Box, G. E. P., Jenkins, G. M., Reinsel, G. C., & Ljung, G. M. (2015). *Time Series Analysis: Forecasting and Control* (5th ed.). Wiley.  
 3. Greff, K., Srivastava, R. K., Koutník, J., Steunebrink, B. R., & Schmidhuber, J. (2017). LSTM: A Search Space Odyssey. *IEEE Transactions on Neural Networks and Learning Systems*, 28(10), 2222-2232.  
 4. Hochreiter, S., & Schmidhuber, J. (1997). Long Short-Term Memory. *Neural Computation*, 9(8), 1735-1780.  
