@@ -124,7 +124,7 @@ forecast-harga-beras/
 │   ├── 03_arima_log.R                         # ARIMA(log) + residual check
 │   ├── 04_sarima_log.R                        # SARIMA(log) + residual check
 │   ├── 05_lstm_log.R                          # LSTM (log + min-max)
-│   ├── 06_predict_each_model.R               # gabungkan semua forecast
+│   ├── 06_predict_each_model.R                # gabungan semua prediksi
 │   ├── 07_plot_compare_models.R               # visualisasi perbandingan model
 │   └── 08_export_results.R                    # export CSV & PNG
 │
