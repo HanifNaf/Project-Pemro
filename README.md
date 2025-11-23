@@ -68,11 +68,11 @@ Dengan membandingkan ketiga pendekatan tersebut, penelitian ini bertujuan mengid
 - Mengevaluasi pola musiman secara visual berdasarkan puncak dan lembah yang berulang tahunan
   
 **5. Pemodelan ARIMA (Log)**
-- Mengestimasi model ARIMA log menggunakan fungsi auto.arima() untuk pemilihan orde (p, d, q) secara otomatis berdasarkan AIC/AICc/BIC
+- Mengestimasi model ARIMA log menggunakan fungsi `auto.arima()` untuk pemilihan orde (p, d, q) secara otomatis berdasarkan AIC/AICc/BIC
 - Setelah model terpilih, dilakukan estimasi parameter dan diagnostik residual (ACF residual, uji Ljung–Box, uji normalitas) untuk memastikan asumsi white-noise terpenuhi
   
 **6. Pemodelan SARIMA (Log)**
-- Menggunakan auto.arima(..., seasonal = TRUE) untuk menangkap pola musiman. Pemilihan komponen musiman (P, D, Q, s) dilakukan otomatis oleh algoritma
+- Menggunakan fungsi `auto.arima(..., seasonal = TRUE)` untuk menangkap pola musiman. Pemilihan komponen musiman (P, D, Q, s) dilakukan otomatis oleh algoritma
 - Model SARIMA yang dihasilkan dievaluasi melalui AIC/AICc/BIC dan diuji diagnostik residual (khususnya autocorrelation pada lag musiman dan non-musiman)
   
 **7. Pemodelan LSTM (Log)**
@@ -187,7 +187,7 @@ forecast-harga-beras/
 <p align="center"><i>Gambar 3. Pemodelan Harga Beras Medium dengan ARIMA, SARIMA, dan LSTM</i></p>
 
 <p align="center">
-  <img width="3600" height="1800" alt="final_forecast_lstm" src="https://github.com/user-attachments/assets/d359ce4f-c8ff-432a-832f-347fd18f9bb2" />
+  <img width="3600" height="1800" alt="final_forecast_lstm" src="https://github.com/user-attachments/assets/df9afd80-9a34-4302-b665-cc46d43b9531" />
 <p align="center"><i>Gambar 4. Hasil Peramalan Harga Beras Medium Bulan November 2025-Oktober 2026 (Model Terbaik)</i></p>
 
 ---
