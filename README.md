@@ -173,7 +173,7 @@ forecast-harga-beras/
 
 ## 📊 Cuplikan Visual
 <p align="center">
-  <img width="3000" height="1500" alt="ts_plot_level" src="https://github.com/user-attachments/assets/17b877df-d3db-4c75-bd9f-6b30c00dc00d" />
+  <img width="800" height="600" alt="stl_decomposition_log" src="https://github.com/user-attachments/assets/9c585f31-f007-4193-b16f-c902294a4869" />
 <p align="center"><i>Gambar 2. Tren Harga Beras Medium di Indonesia</i></p>
 
 <p align="center">
