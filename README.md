@@ -47,16 +47,16 @@ Dengan membandingkan ketiga pendekatan tersebut, penelitian ini bertujuan mengid
 - Mengumpulkan data harga beras medium bulanan periode Januari 2013–Oktober 2025
 - Memastikan konsistensi format tanggal
 - Menghapus inkonsistensi dan memastikan data siap dianalisis sebagai deret waktu
-  
-**2. Transformasi dan Pra-pengolahan**
-- Menerapkan transformasi logaritmik untuk menstabilkan varians dan mengurangi heteroskedastisitas
-- Melakukan normalisasi min–maks khusus untuk model LSTM
-  
-**3. Pembentukan Deret Waktu dan Pembagian Data**
+    
+**2. Pembentukan Deret Waktu dan Pembagian Data**
 - Mengonversi data menjadi objek deret waktu dengan frekuensi bulanan
 - Membagi data menjadi:
   - **Training set:** Jan 2013 – Des 2023
   - **Test set:** Jan 2024 – Okt 2025
+  
+**3. Transformasi dan Pra-pengolahan**
+- Menerapkan transformasi logaritmik untuk menstabilkan varians dan mengurangi heteroskedastisitas
+- Melakukan normalisasi min–maks khusus untuk model LSTM
   
 **4. Eksplorasi Data**
 - Menampilkan statistik deskriptif awal seperti nilai minimum, maksimum, rata-rata, dan tren umum harga
