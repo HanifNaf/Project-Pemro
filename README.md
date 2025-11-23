@@ -37,7 +37,7 @@ Dengan membandingkan ketiga pendekatan tersebut, penelitian ini bertujuan mengid
 
 ## 💡 Metodologi
 <p align="center">
-  <img width="3000" height="2000" alt="Blank diagram (2)" src="https://github.com/user-attachments/assets/67d4c68d-6b22-46f1-8a76-0a4eecf54b66" />
+  <img width="3000" height="2000" alt="Blank diagram (3)" src="https://github.com/user-attachments/assets/016081ee-d600-4f0b-868e-3b9bdd38d874" />
 <p align="center"><i>Gambar 1. Flowchart Metode Prediksi Harga Beras Medium di Indonesia</i></p>
 
 ---
