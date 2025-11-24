@@ -1,6 +1,8 @@
-# 🍚 Model Prediktif Harga Beras: Komparasi ARIMA, SARIMA, dan LSTM 🍚
+# 🍚 Model Prediktif Harga Beras: Komparasi ARIMA, SARIMA, & LSTM
 
-<img width="1100" height="350" alt="header project pemro" src="https://github.com/user-attachments/assets/cc96082d-6d0c-4db8-9c5e-1dbf19945447" />
+<p align="center">
+  <img src="img/header%20project%20pemro.png" width="1100">
+</p>
 
 ## 📖 Deskripsi Proyek  
 Proyek ini menganalisis dan membandingkan akurasi tiga metode peramalan deret waktu—**ARIMA, SARIMA, dan LSTM**—dalam memprediksi **harga beras medium di Indonesia** menggunakan data bulanan Januari 2013–Oktober 2025 dari BPS. Tujuan utamanya adalah mengidentifikasi model yang paling efektif dalam menangkap tren jangka panjang, pola musiman, dan dinamika non-linear pada harga beras.
@@ -28,10 +30,13 @@ Dengan membandingkan ketiga pendekatan tersebut, penelitian ini bertujuan mengid
 ---
 
 ## 📊 Data dan Variabel  
+<p align="center">
+  <img src="img/BPS.png" width="200">
+</p>
 
-<img width="200" height="200" alt="LOGO BPS" src="https://github.com/user-attachments/assets/ca492381-5db4-4498-b4a6-62c22ad27207" />
-
-**Variabel:** harga beras medium bulanan dari Januari 2013 s.d. Oktober 2025
+<div align="center">
+  <strong>Variabel:</strong> harga beras medium bulanan dari Januari 2013 s.d. Oktober 2025
+</div>
 
 ---
 
@@ -106,8 +111,10 @@ Dengan membandingkan ketiga pendekatan tersebut, penelitian ini bertujuan mengid
 forecast-harga-beras/
 │
 ├── data/
-│   ├── Data Harga Beras 2013-2025.xlsx
-│   └── harga_beras_clean.xlsx                 # hasil cleaning tanggal
+│   ├── Data Raw/
+│   │   └── Data Harga Beras 2013-2025.xlsx
+│   └── Data Clean/
+│       └── harga_beras_clean.xlsx             # hasil cleaning tanggal
 │
 ├── R/
 │   ├── 01_load_preprocess.R                   # load, transformasi log, ts(), window(), train/test
@@ -165,16 +172,24 @@ forecast-harga-beras/
 
 ## 📊 Cuplikan Visual
 <p align="center">
-  <img width="800" height="600" alt="stl_decomposition_log" src="https://github.com/user-attachments/assets/1ec87e14-6dfe-4ba6-bc34-e2b43f777712" />
+  <img src="plots/eda/stl_decomposition_log.png" width="800">
+</p>
 <p align="center"><i>Gambar 2. Tren Harga Beras Medium di Indonesia</i></p>
 
 <p align="center">
-  <img width="3600" height="1800" alt="compare_evaluation_forecasts" src="https://github.com/user-attachments/assets/9bb42580-be7e-4266-abfb-30134d371c4c" />
-<p align="center"><i>Gambar 3. Pemodelan Harga Beras Medium dengan ARIMA, SARIMA, dan LSTM</i></p>
+  <img src="plots/eda/seasonal_boxplot_log.png" width="3600">
+</p>
+<p align="center"><i>Gambar 3. Seasonal Boxplot Harga Beras Medium di Indonesia</i></p>
 
 <p align="center">
-  <img width="3600" height="1800" alt="final_forecast_lstm" src="https://github.com/user-attachments/assets/df9afd80-9a34-4302-b665-cc46d43b9531" />
-<p align="center"><i>Gambar 4. Hasil Peramalan Harga Beras Medium Bulan November 2025-Oktober 2026 (Model Terbaik)</i></p>
+  <img src="plots/compare/compare_evaluation_forecasts.png" width="3600">
+</p>
+<p align="center"><i>Gambar 4. Pemodelan Harga Beras Medium dengan ARIMA, SARIMA, dan LSTM</i></p>
+
+<p align="center">
+  <img src="plots/compare/final_forecast_lstm.png" width="3600">
+</p>
+<p align="center"><i>Gambar 5. Hasil Peramalan Harga Beras Medium Bulan November 2025-Oktober 2026 (Model Terbaik)</i></p>
 
 | Tahun | 2025 | 2025 | 2026 | 2026 | 2026 | 2026 | 2026 | 2026 | 2026 | 2026 | 2026 | 2026 |
 |:-----:|:----:|:----:|:----:|:----:|:----:|:----:|:----:|:----:|:----:|:----:|:----:|:----:|
@@ -192,6 +207,12 @@ forecast-harga-beras/
 3 LSTM(log)    968.  779. 0.0589
 ```
   
+---
+
+## 🚀 Manfaat Penelitian
+
+Penelitian ini bermanfaat dalam menyediakan prediksi harga beras yang akurat sebagai dasar pengambilan keputusan, memperkaya literatur analisis time series pada komoditas pangan, serta mendukung penyusunan kebijakan stabilisasi harga oleh pemerintah.
+
 ---
 
 ## 📚 Referensi
