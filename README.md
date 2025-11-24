@@ -42,7 +42,8 @@ Dengan membandingkan ketiga pendekatan tersebut, penelitian ini bertujuan mengid
 
 ## 💡 Metodologi
 <p align="center">
-  <img width="3000" height="2000" alt="Blank diagram (3)" src="https://github.com/user-attachments/assets/016081ee-d600-4f0b-868e-3b9bdd38d874" />
+  <img src="img/Flowchart.png" width="3000">
+</p>
 <p align="center"><i>Gambar 1. Flowchart Metode Prediksi Harga Beras Medium di Indonesia</i></p>
 
 ---
@@ -172,22 +173,22 @@ forecast-harga-beras/
 
 ## 📊 Cuplikan Visual
 <p align="center">
-  <img src="plots/eda/stl_decomposition_log.png" width="800">
+  <img src="plots/eda/stl_decomposition_log.png" width="3000">
 </p>
 <p align="center"><i>Gambar 2. Tren Harga Beras Medium di Indonesia</i></p>
 
 <p align="center">
-  <img src="plots/eda/seasonal_boxplot_log.png" width="3600">
+  <img src="plots/eda/seasonal_boxplot_log.png" width="3000">
 </p>
 <p align="center"><i>Gambar 3. Seasonal Boxplot Harga Beras Medium di Indonesia</i></p>
 
 <p align="center">
-  <img src="plots/compare/compare_evaluation_forecasts.png" width="3600">
+  <img src="plots/compare/compare_evaluation_forecasts.png" width="3000">
 </p>
 <p align="center"><i>Gambar 4. Pemodelan Harga Beras Medium dengan ARIMA, SARIMA, dan LSTM</i></p>
 
 <p align="center">
-  <img src="plots/compare/final_forecast_lstm.png" width="3600">
+  <img src="plots/compare/final_forecast_lstm.png" width="3000">
 </p>
 <p align="center"><i>Gambar 5. Hasil Peramalan Harga Beras Medium Bulan November 2025-Oktober 2026 (Model Terbaik)</i></p>
 
