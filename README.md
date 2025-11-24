@@ -74,9 +74,8 @@ Dengan membandingkan ketiga pendekatan tersebut, penelitian ini bertujuan mengid
   
 **7. Pemodelan LSTM**
 - Melakukan normalisasi min–maks pada data
-- Membentuk jendela sliding window untuk input jaringan
-- Melatih model LSTM
-- Melakukan inverse normalization pada hasil prediksi
+- Menentukan batasan sliding window
+- Melatih model LSTM
   
 **8. Evaluasi Kinerja Model**
 - Menghitung RMSE, MAE, dan MAPE pada test set
@@ -176,6 +175,11 @@ forecast-harga-beras/
 <p align="center">
   <img width="3600" height="1800" alt="final_forecast_lstm" src="https://github.com/user-attachments/assets/df9afd80-9a34-4302-b665-cc46d43b9531" />
 <p align="center"><i>Gambar 4. Hasil Peramalan Harga Beras Medium Bulan November 2025-Oktober 2026 (Model Terbaik)</i></p>
+
+| Tahun | 2025 | 2025 | 2026 | 2026 | 2026 | 2026 | 2026 | 2026 | 2026 | 2026 | 2026 | 2026 |
+|:-----:|:----:|:----:|:----:|:----:|:----:|:----:|:----:|:----:|:----:|:----:|:----:|:----:|
+| Bulan | Nov  | Des  | Jan  | Feb  | Mar  | Apr  | Mei  | Jun  | Jul  | Ags  | Sep  | Okt  |
+| Forecast (Rp) | 12,669 | 12,681 | 12,694 | 12,693 | 12,689 | 12,678 | 12,671 | 12,661 | 12,640 | 12,605 | 12,563 | 12,525 |
 
 ---
 
