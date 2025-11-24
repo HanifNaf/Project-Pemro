@@ -22,7 +22,7 @@ Dengan membandingkan ketiga pendekatan tersebut, penelitian ini bertujuan mengid
 ---
 
 ## 🎯 Tujuan  
-1. Menganalisis pola historis harga beras medium di Indonesia, meliputi tren jangka panjang, pola musiman, dan dinamika volatilitas
+1. Menganalisis pola historis harga beras medium di Indonesia, meliputi tren jangka panjang dan pola musiman
 2. Membangun dan mengevaluasi model ARIMA, SARIMA, dan LSTM dalam memprediksi harga beras medium berdasarkan karakteristik deret waktunya
 3. Menentukan model prediksi yang paling akurat dan paling representatif terhadap dinamika harga beras medium
 4. Menghasilkan proyeksi harga beras medium untuk 12 bulan ke depan menggunakan model terbaik
