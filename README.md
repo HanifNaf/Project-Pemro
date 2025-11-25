@@ -207,6 +207,7 @@ forecast-harga-beras/
 2 SARIMA(log) 1549. 1393. 0.1090 
 3 LSTM(log)    968.  779. 0.0589
 ```
+Berdasarkan hasil evaluasi pada data uji, **model LSTM(log) menunjukkan performa terbaik dengan nilai RMSE, MAE, dan MAPE paling rendah, sehingga memberikan estimasi harga beras yang paling mendekati kondisi aktual**. Secara teori, keunggulan LSTM disebabkan oleh kemampuannya menangkap hubungan non-linier serta ketergantungan jangka panjang dalam data runtun waktu, yang tidak dapat dimodelkan secara optimal oleh ARIMA maupun SARIMA yang berbasis asumsi linearitas. Oleh karena itu, LSTM lebih adaptif terhadap pola musiman dan dinamika harga yang berubah-ubah.
   
 ---
 
