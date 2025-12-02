@@ -179,7 +179,7 @@ forecast-harga-beras/
 <p align="center"><i>Gambar 2. Tren Harga Beras Medium di Indonesia</i></p>
 
 <p align="center">
-  <img src="plots/eda/seasonal_boxplot_level.png" width="3000">
+  <img src="plots/eda/seasonal_boxplot_level.png" width="1200">
 </p>
 <p align="center"><i>Gambar 3. Seasonal Boxplot Harga Beras Medium di Indonesia</i></p>
 
@@ -196,25 +196,25 @@ forecast-harga-beras/
 | Tahun | 2025 | 2025 | 2026 | 2026 | 2026 | 2026 | 2026 | 2026 | 2026 | 2026 | 2026 | 2026 |
 |:-----:|:----:|:----:|:----:|:----:|:----:|:----:|:----:|:----:|:----:|:----:|:----:|:----:|
 | Bulan | Nov  | Des  | Jan  | Feb  | Mar  | Apr  | Mei  | Jun  | Jul  | Ags  | Sep  | Okt  |
-| Peramalan Harga Beras (Rp) | 12,669 | 12,681 | 12,694 | 12,693 | 12,689 | 12,678 | 12,671 | 12,661 | 12,640 | 12,605 | 12,563 | 12,525 |
+| Peramalan Harga Beras Medium (Rp) | 12,669 | 12,681 | 12,694 | 12,693 | 12,689 | 12,678 | 12,671 | 12,661 | 12,640 | 12,605 | 12,563 | 12,525 |
 
 ---
 
 ## 🔬 Evaluasi Model Terbaik
 ```
-  Model        RMSE   MAE   MAPE
-  <chr>       <dbl> <dbl>  <dbl>
-1 ARIMA(log)  1064. 1016. 0.0796
-2 SARIMA(log) 1549. 1393. 0.1090 
-3 LSTM(log)    968.  779. 0.0589
+  Model     RMSE    MAE    MAPE
+  <chr>    <dbl>  <dbl>   <dbl>
+1 ARIMA    1064.  1016.  0.0796
+2 SARIMA   1549.  1393.  0.1090 
+3 LSTM      968.   779.  0.0589
 ```
-Berdasarkan hasil evaluasi pada data uji, **model LSTM(log) menunjukkan performa terbaik dengan nilai RMSE, MAE, dan MAPE paling rendah, sehingga memberikan estimasi harga beras yang paling mendekati kondisi aktual**. Secara teori, keunggulan LSTM disebabkan oleh kemampuannya menangkap hubungan non-linier serta ketergantungan jangka panjang dalam data runtun waktu, yang tidak dapat dimodelkan secara optimal oleh ARIMA maupun SARIMA yang berbasis asumsi linearitas. Oleh karena itu, LSTM lebih adaptif terhadap pola musiman dan dinamika harga yang berubah-ubah.
+Berdasarkan hasil evaluasi pada data uji, **model LSTM menunjukkan performa terbaik dengan nilai RMSE, MAE, dan MAPE paling rendah, sehingga memberikan estimasi harga beras yang paling mendekati kondisi aktual**. Secara teori, keunggulan LSTM disebabkan oleh kemampuannya menangkap hubungan non-linier serta ketergantungan jangka panjang dalam data runtun waktu, yang tidak dapat dimodelkan secara optimal oleh ARIMA maupun SARIMA yang berbasis asumsi linearitas. Oleh karena itu, LSTM lebih adaptif terhadap pola musiman dan dinamika harga yang berubah-ubah.
   
 ---
 
 ## 🚀 Manfaat Penelitian
 
-Penelitian ini bermanfaat dalam menyediakan prediksi harga beras yang akurat sebagai dasar pengambilan keputusan, memperkaya literatur analisis time series pada komoditas pangan, serta mendukung penyusunan kebijakan stabilisasi harga oleh pemerintah.
+Penelitian ini bermanfaat dalam menyediakan prediksi harga beras yang akurat sebagai dasar pengambilan keputusan, memperkaya literatur analisis _time series_ pada komoditas pangan, serta mendukung penyusunan kebijakan stabilisasi harga oleh pemerintah.
 
 ---
 
