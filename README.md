@@ -135,6 +135,7 @@ forecast-harga-beras/
 │   │   ├── ts_plot_level.png
 │   │   ├── ts_plot_log.png
 │   │   ├── stl_decomposition_log.png
+│   │   ├── seasonal_boxplot_level.png
 │   │   ├── seasonal_boxplot_log.png
 │   │   ├── acf_pacf_level_log.png
 │   │   ├── acf_pacf_diff1_log.png
@@ -178,7 +179,7 @@ forecast-harga-beras/
 <p align="center"><i>Gambar 2. Tren Harga Beras Medium di Indonesia</i></p>
 
 <p align="center">
-  <img src="plots/eda/seasonal_boxplot_log.png" width="3000">
+  <img src="plots/eda/seasonal_boxplot_level.png" width="3000">
 </p>
 <p align="center"><i>Gambar 3. Seasonal Boxplot Harga Beras Medium di Indonesia</i></p>
 
@@ -195,7 +196,7 @@ forecast-harga-beras/
 | Tahun | 2025 | 2025 | 2026 | 2026 | 2026 | 2026 | 2026 | 2026 | 2026 | 2026 | 2026 | 2026 |
 |:-----:|:----:|:----:|:----:|:----:|:----:|:----:|:----:|:----:|:----:|:----:|:----:|:----:|
 | Bulan | Nov  | Des  | Jan  | Feb  | Mar  | Apr  | Mei  | Jun  | Jul  | Ags  | Sep  | Okt  |
-| Forecast (Rp) | 12,669 | 12,681 | 12,694 | 12,693 | 12,689 | 12,678 | 12,671 | 12,661 | 12,640 | 12,605 | 12,563 | 12,525 |
+| Peramalan Harga Beras (Rp) | 12,669 | 12,681 | 12,694 | 12,693 | 12,689 | 12,678 | 12,671 | 12,661 | 12,640 | 12,605 | 12,563 | 12,525 |
 
 ---
 
